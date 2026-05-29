@@ -5,3 +5,6 @@
 venv/
 __pycache__/
 *.pyc
+
+backend/plant_model.pth
+backend/class_names.json
