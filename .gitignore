@@ -1,16 +1,5 @@
-# Python
-__pycache__/
-*.pyc
-*.pyo
-.env
+# База даних
+*.db
+
+# Віртуальне середовище
 venv/
-*.pth
-
-# Node
-node_modules/
-dist/
-.DS_Store
-
-# ML модель (великий файл, не заливаємо)
-backend/plant_model.pth
-backend/class_names.json
