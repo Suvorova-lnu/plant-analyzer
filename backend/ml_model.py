@@ -9,13 +9,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(BASE_DIR, "class_names.json")) as f:
+with open(os.path.join(BASE_DIR, "class_names_v2.json")) as f:
     CLASS_NAMES = json.load(f)
 
 model = models.mobilenet_v2(pretrained=False)
 model.classifier[1] = nn.Linear(model.last_channel, len(CLASS_NAMES))
 model.load_state_dict(torch.load(
-    os.path.join(BASE_DIR, "plant_model.pth"),
+    os.path.join(BASE_DIR, "plant_model_v2.pth"),
     map_location="cpu"
 ))
 model.eval()

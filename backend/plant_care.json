@@ -1,0 +1,612 @@
+{
+  "Apple___Apple_scab": {
+    "name_ua": "Яблуня — Парша",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Добре дренований",
+    "watering_tip": "Поливай біля кореня, уникай намокання листя",
+    "fertilizer_tip": "Добриво з високим вмістом калію навесні",
+    "disease": true
+  },
+  "Apple___Black_rot": {
+    "name_ua": "Яблуня — Чорна гниль",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Добре дренований",
+    "watering_tip": "Помірний полив, уникай перезволоження",
+    "fertilizer_tip": "Збалансоване NPK добриво",
+    "disease": true
+  },
+  "Apple___Cedar_apple_rust": {
+    "name_ua": "Яблуня — Іржа",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Добре дренований",
+    "watering_tip": "Регулярний помірний полив",
+    "fertilizer_tip": "Добриво навесні до цвітіння",
+    "disease": true
+  },
+  "Apple___healthy": {
+    "name_ua": "Яблуня — Здорова",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Добре дренований, родючий",
+    "watering_tip": "Поливай раз на тиждень, глибокий полив",
+    "fertilizer_tip": "Навесні азотне, восени калійне",
+    "disease": false
+  },
+  "Blueberry___healthy": {
+    "name_ua": "Чорниця — Здорова",
+    "watering_days": 3,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце або напівтінь",
+    "soil": "Кислий, торфяний",
+    "watering_tip": "Рівномірний полив, не пересушуй",
+    "fertilizer_tip": "Добриво для кислих ґрунтів",
+    "disease": false
+  },
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "name_ua": "Вишня — Борошниста роса",
+    "watering_days": 5,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, дренований",
+    "watering_tip": "Поливай вранці, уникай вечірнього поливу",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": true
+  },
+  "Cherry_(including_sour)___healthy": {
+    "name_ua": "Вишня — Здорова",
+    "watering_days": 5,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, дренований",
+    "watering_tip": "Помірний полив раз на 5 днів",
+    "fertilizer_tip": "Комплексне добриво навесні",
+    "disease": false
+  },
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "name_ua": "Кукурудза — Сіра пляма",
+    "watering_days": 4,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, вологий",
+    "watering_tip": "Рясний полив під корінь",
+    "fertilizer_tip": "Азотне добриво на початку росту",
+    "disease": true
+  },
+  "Corn_(maize)___Common_rust_": {
+    "name_ua": "Кукурудза — Іржа",
+    "watering_days": 4,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Регулярний полив без застою води",
+    "fertilizer_tip": "Збалансоване NPK добриво",
+    "disease": true
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "name_ua": "Кукурудза — Північний опік листя",
+    "watering_days": 4,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Полив під корінь, уникай листя",
+    "fertilizer_tip": "Азотно-фосфорне добриво",
+    "disease": true
+  },
+  "Corn_(maize)___healthy": {
+    "name_ua": "Кукурудза — Здорова",
+    "watering_days": 4,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, вологий",
+    "watering_tip": "Рясний полив кожні 4 дні",
+    "fertilizer_tip": "Азотне добриво в період росту",
+    "disease": false
+  },
+  "Grape___Black_rot": {
+    "name_ua": "Виноград — Чорна гниль",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований, піщаний",
+    "watering_tip": "Помірний полив, не заливай",
+    "fertilizer_tip": "Калійне добриво для ягід",
+    "disease": true
+  },
+  "Grape___Esca_(Black_Measles)": {
+    "name_ua": "Виноград — Еска",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований",
+    "watering_tip": "Рівномірний полив без перезволоження",
+    "fertilizer_tip": "Мікроелементи + калій",
+    "disease": true
+  },
+  "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "name_ua": "Виноград — Опік листя",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, дренований",
+    "watering_tip": "Полив під корінь вранці",
+    "fertilizer_tip": "Збалансоване добриво",
+    "disease": true
+  },
+  "Grape___healthy": {
+    "name_ua": "Виноград — Здоровий",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований, піщано-глинистий",
+    "watering_tip": "Глибокий полив раз на тиждень",
+    "fertilizer_tip": "Навесні азотне, влітку калійне",
+    "disease": false
+  },
+  "Orange___Haunglongbing_(Citrus_greening)": {
+    "name_ua": "Апельсин — Зеленіння цитрусових",
+    "watering_days": 5,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Добре дренований",
+    "watering_tip": "Помірний рівномірний полив",
+    "fertilizer_tip": "Добриво для цитрусових з мікроелементами",
+    "disease": true
+  },
+  "Peach___Bacterial_spot": {
+    "name_ua": "Персик — Бактеріальна пляма",
+    "watering_days": 5,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, дренований",
+    "watering_tip": "Полив під корінь, не мочи листя",
+    "fertilizer_tip": "Збалансоване NPK навесні",
+    "disease": true
+  },
+  "Peach___healthy": {
+    "name_ua": "Персик — Здоровий",
+    "watering_days": 5,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, родючий",
+    "watering_tip": "Регулярний полив кожні 5 днів",
+    "fertilizer_tip": "Комплексне добриво навесні",
+    "disease": false
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "name_ua": "Перець — Бактеріальна пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, вологий",
+    "watering_tip": "Рівномірний полив без пересихання",
+    "fertilizer_tip": "Фосфорне добриво при посадці",
+    "disease": true
+  },
+  "Pepper,_bell___healthy": {
+    "name_ua": "Перець — Здоровий",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, помірно вологий",
+    "watering_tip": "Полив кожні 2-3 дні теплою водою",
+    "fertilizer_tip": "Калійне добриво в період плодоношення",
+    "disease": false
+  },
+  "Potato___Early_blight": {
+    "name_ua": "Картопля — Рання пляма",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Пухкий, дренований",
+    "watering_tip": "Помірний полив, уникай перезволоження",
+    "fertilizer_tip": "Калійне добриво для бульб",
+    "disease": true
+  },
+  "Potato___Late_blight": {
+    "name_ua": "Картопля — Фітофтора",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Пухкий, добре дренований",
+    "watering_tip": "Полив під корінь, уникай листя",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": true
+  },
+  "Potato___healthy": {
+    "name_ua": "Картопля — Здорова",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Пухкий, родючий",
+    "watering_tip": "Рівномірний полив кожні 4 дні",
+    "fertilizer_tip": "Азотне на початку, калійне пізніше",
+    "disease": false
+  },
+  "Raspberry___healthy": {
+    "name_ua": "Малина — Здорова",
+    "watering_days": 3,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце або легка тінь",
+    "soil": "Родючий, помірно кислий",
+    "watering_tip": "Регулярний полив без застою",
+    "fertilizer_tip": "Азотне навесні, калійне влітку",
+    "disease": false
+  },
+  "Soybean___healthy": {
+    "name_ua": "Соя — Здорова",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, нейтральний",
+    "watering_tip": "Рівномірний полив в період цвітіння",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": false
+  },
+  "Squash___Powdery_mildew": {
+    "name_ua": "Гарбуз — Борошниста роса",
+    "watering_days": 4,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, вологий",
+    "watering_tip": "Полив під корінь вранці",
+    "fertilizer_tip": "Збалансоване добриво",
+    "disease": true
+  },
+  "Strawberry___Leaf_scorch": {
+    "name_ua": "Суниця — Опік листя",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, кислий",
+    "watering_tip": "Помірний полив, не заливай",
+    "fertilizer_tip": "Калійне добриво для ягід",
+    "disease": true
+  },
+  "Strawberry___healthy": {
+    "name_ua": "Суниця — Здорова",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Легкий, родючий, злегка кислий",
+    "watering_tip": "Полив кожні 2-3 дні, не мочи ягоди",
+    "fertilizer_tip": "Калійне добриво в період плодоношення",
+    "disease": false
+  },
+  "Tomato___Bacterial_spot": {
+    "name_ua": "Томат — Бактеріальна пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Полив під корінь, уникай листя",
+    "fertilizer_tip": "Збалансоване NPK добриво",
+    "disease": true
+  },
+  "Tomato___Early_blight": {
+    "name_ua": "Томат — Рання пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Рівномірний полив без перезволоження",
+    "fertilizer_tip": "Калійне добриво",
+    "disease": true
+  },
+  "Tomato___Late_blight": {
+    "name_ua": "Томат — Фітофтора",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований",
+    "watering_tip": "Полив вранці під корінь",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": true
+  },
+  "Tomato___Leaf_Mold": {
+    "name_ua": "Томат — Листкова цвіль",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Уникай надмірної вологості",
+    "fertilizer_tip": "Збалансоване добриво",
+    "disease": true
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "name_ua": "Томат — Септоріоз",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Полив під корінь без бризок",
+    "fertilizer_tip": "Азотне добриво на початку",
+    "disease": true
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "name_ua": "Томат — Павутинний кліщ",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Помірно вологий",
+    "watering_tip": "Підвищуй вологість повітря навколо рослини",
+    "fertilizer_tip": "Збалансоване NPK",
+    "disease": true
+  },
+  "Tomato___Target_Spot": {
+    "name_ua": "Томат — Таргетна пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований, родючий",
+    "watering_tip": "Помірний рівномірний полив",
+    "fertilizer_tip": "Калійне добриво",
+    "disease": true
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "name_ua": "Томат — Жовте скручування листя",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Регулярний полив без стресу",
+    "fertilizer_tip": "Збалансоване добриво з мікроелементами",
+    "disease": true
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "name_ua": "Томат — Мозаїчний вірус",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Помірний полив під корінь",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": true
+  },
+  "Tomato___healthy": {
+    "name_ua": "Томат — Здоровий",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце (6-8 год)",
+    "soil": "Родючий, злегка кислий pH 6-6.5",
+    "watering_tip": "Полив кожні 2-3 дні теплою водою під корінь",
+    "fertilizer_tip": "Азотне на початку, калійне при плодоношенні",
+    "disease": false
+  },
+  "Turmeric_Leaf_Spot": {
+    "name_ua": "Куркума — Листкова пляма",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Розсіяне світло",
+    "soil": "Вологий, родючий",
+    "watering_tip": "Підтримуй постійну вологість ґрунту",
+    "fertilizer_tip": "Органічне добриво раз на місяць",
+    "disease": true
+  },
+  "Turmeric_Blotch": {
+    "name_ua": "Куркума — Плямистість",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Розсіяне світло або напівтінь",
+    "soil": "Вологий, дренований",
+    "watering_tip": "Рівномірний полив без пересихання",
+    "fertilizer_tip": "Збалансоване органічне добриво",
+    "disease": true
+  },
+  "Turmeric_Healthy": {
+    "name_ua": "Куркума — Здорова",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Яскраве непряме світло",
+    "soil": "Вологий, родючий, добре дренований",
+    "watering_tip": "Підтримуй вологість, не заливай",
+    "fertilizer_tip": "Органічне добриво кожні 3 тижні",
+    "disease": false
+  },
+  "Turmeric_Aphid_Infestation": {
+    "name_ua": "Куркума — Попелиця",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Розсіяне світло",
+    "soil": "Вологий",
+    "watering_tip": "Обприскуй листя водою для відлякування попелиці",
+    "fertilizer_tip": "Зменш азотне добриво — воно приваблює попелицю",
+    "disease": true
+  },
+  "Turmeric_Leaf_Necrosis": {
+    "name_ua": "Куркума — Некроз листя",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Непряме яскраве світло",
+    "soil": "Добре дренований",
+    "watering_tip": "Помірний полив, уникай застою води",
+    "fertilizer_tip": "Мікроелементи + калій",
+    "disease": true
+  },
+  "Rose_Mosaic_Virus": {
+    "name_ua": "Троянда — Мозаїчний вірус",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце (6+ год)",
+    "soil": "Родючий, злегка кислий",
+    "watering_tip": "Полив під корінь, не мочи листя",
+    "fertilizer_tip": "Збалансоване добриво для троянд",
+    "disease": true
+  },
+  "Rose_Powdery_Mildew": {
+    "name_ua": "Троянда — Борошниста роса",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Полив вранці під корінь",
+    "fertilizer_tip": "Калійне добриво для стійкості",
+    "disease": true
+  },
+  "Rose_Rust": {
+    "name_ua": "Троянда — Іржа",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Уникай намокання листя",
+    "fertilizer_tip": "Фосфорно-калійне добриво",
+    "disease": true
+  },
+  "Rose_Black_Spot": {
+    "name_ua": "Троянда — Чорна пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце (мінімум 6 год)",
+    "soil": "Добре дренований, родючий",
+    "watering_tip": "Полив тільки під корінь вранці",
+    "fertilizer_tip": "Збалансоване добриво для троянд",
+    "disease": true
+  },
+  "Rose_Yellow_Mosaic_Virus": {
+    "name_ua": "Троянда — Жовтий мозаїк",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Родючий",
+    "watering_tip": "Регулярний помірний полив",
+    "fertilizer_tip": "Мікроелементи + збалансоване NPK",
+    "disease": true
+  },
+  "Rose_Downy_Mildew": {
+    "name_ua": "Троянда — Несправжня борошниста роса",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце з провітрюванням",
+    "soil": "Дренований",
+    "watering_tip": "Уникай вечірнього поливу і вологості листя",
+    "fertilizer_tip": "Калійне добриво для стійкості",
+    "disease": true
+  },
+  "Rose_Healthy": {
+    "name_ua": "Троянда — Здорова",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце (6-8 год)",
+    "soil": "Родючий, злегка кислий pH 6-6.5",
+    "watering_tip": "Полив кожні 2-3 дні під корінь вранці",
+    "fertilizer_tip": "Спеціальне добриво для троянд кожні 2 тижні",
+    "disease": false
+  },
+  "Chrysanthemum_Healthy": {
+    "name_ua": "Хризантема — Здорова",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце або легка тінь",
+    "soil": "Родючий, добре дренований",
+    "watering_tip": "Рівномірний полив, не заливай",
+    "fertilizer_tip": "Збалансоване добриво раз на 2 тижні",
+    "disease": false
+  },
+  "Chrysanthemum_Septoria_Leaf_Spot": {
+    "name_ua": "Хризантема — Септоріоз",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце",
+    "soil": "Дренований",
+    "watering_tip": "Полив під корінь, уникай бризок на листя",
+    "fertilizer_tip": "Калійне добриво для стійкості",
+    "disease": true
+  },
+  "Chrysanthemum_Bacterial_Leaf_Spot": {
+    "name_ua": "Хризантема — Бактеріальна пляма",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Яскраве світло",
+    "soil": "Родючий, дренований",
+    "watering_tip": "Помірний полив без намокання листя",
+    "fertilizer_tip": "Збалансоване NPK",
+    "disease": true
+  },
+  "Money Plant_Money_Plant_Healthy": {
+    "name_ua": "Потос — Здоровий",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Непряме світло або напівтінь",
+    "soil": "Легкий, дренований",
+    "watering_tip": "Дай ґрунту підсохнути між поливами",
+    "fertilizer_tip": "Рідке добриво раз на місяць",
+    "disease": false
+  },
+  "Money Plant_Money_Plant_Bacterial_Wilt": {
+    "name_ua": "Потос — Бактеріальне в'янення",
+    "watering_days": 7,
+    "fertilizing_days": 30,
+    "sunlight": "Непряме світло",
+    "soil": "Добре дренований",
+    "watering_tip": "Зменш полив, забезпечи дренаж",
+    "fertilizer_tip": "Тимчасово припини добрива",
+    "disease": true
+  },
+  "Money Plant_Money_Plant_Chlorosis": {
+    "name_ua": "Потос — Хлороз",
+    "watering_days": 7,
+    "fertilizing_days": 14,
+    "sunlight": "Яскравіше непряме світло",
+    "soil": "Родючий з залізом",
+    "watering_tip": "Поливай відстояною водою",
+    "fertilizer_tip": "Добриво з залізом і магнієм",
+    "disease": true
+  },
+  "Money Plant_Money_Plant_Manganese_Toxicity": {
+    "name_ua": "Потос — Токсичність марганцю",
+    "watering_days": 10,
+    "fertilizing_days": 60,
+    "sunlight": "Помірне непряме світло",
+    "soil": "Нейтральний pH 6-7",
+    "watering_tip": "Промий ґрунт великою кількістю води",
+    "fertilizer_tip": "Припини добрива на 2 місяці",
+    "disease": true
+  },
+  "Hibiscus_Healthy": {
+    "name_ua": "Гібіскус — Здоровий",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Повне сонце (6+ год)",
+    "soil": "Родючий, злегка кислий",
+    "watering_tip": "Рясний полив влітку, помірний взимку",
+    "fertilizer_tip": "Добриво з високим вмістом калію для цвітіння",
+    "disease": false
+  },
+  "Hibiscus_Blight": {
+    "name_ua": "Гібіскус — Опік",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Яскраве сонце з провітрюванням",
+    "soil": "Дренований",
+    "watering_tip": "Помірний полив, уникай застою",
+    "fertilizer_tip": "Калійне добриво для стійкості",
+    "disease": true
+  },
+  "Hibiscus_Necrosis": {
+    "name_ua": "Гібіскус — Некроз",
+    "watering_days": 4,
+    "fertilizing_days": 21,
+    "sunlight": "Яскраве непряме світло",
+    "soil": "Добре дренований",
+    "watering_tip": "Зменш полив, перевір дренаж",
+    "fertilizer_tip": "Мікроелементи + калій",
+    "disease": true
+  },
+  "Hibiscus_Scorch": {
+    "name_ua": "Гібіскус — Опік листя",
+    "watering_days": 3,
+    "fertilizing_days": 14,
+    "sunlight": "Яскраве світло без прямого полуденного сонця",
+    "soil": "Вологий, дренований",
+    "watering_tip": "Збільш полив в спеку",
+    "fertilizer_tip": "Збалансоване добриво з мікроелементами",
+    "disease": true
+  }
+}
