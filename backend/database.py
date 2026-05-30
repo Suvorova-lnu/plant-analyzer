@@ -26,6 +26,29 @@ class AnalysisHistory(Base):
     image_name = Column(String)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
+class MyPlant(Base):
+    __tablename__ = "my_plants"
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    name = Column(String)
+    species = Column(String)
+    photo_url = Column(String, nullable=True)
+    soil_type = Column(String, nullable=True)
+    notes = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+class WateringSchedule(Base):
+    __tablename__ = "watering_schedule"
+    id = Column(Integer, primary_key=True)
+    plant_id = Column(Integer, ForeignKey("my_plants.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
+    watering_interval_days = Column(Integer)
+    fertilizing_interval_days = Column(Integer)
+    last_watered = Column(DateTime, nullable=True)
+    last_fertilized = Column(DateTime, nullable=True)
+    next_watering = Column(DateTime, nullable=True)
+    next_fertilizing = Column(DateTime, nullable=True)
+
 def get_db():
     db = SessionLocal()
     try:
