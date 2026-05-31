@@ -2,10 +2,16 @@ import torch
 import torchvision.models as models
 import torch.nn as nn
 from torchvision import transforms
-from PIL import Image
+from PIL import Image, ImageOps
 import json
 import io
 import os
+
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+except:
+    pass
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -28,7 +34,13 @@ transform = transforms.Compose([
 ])
 
 def predict(image_bytes: bytes):
-    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    try:
+        image = Image.open(io.BytesIO(image_bytes))
+        image = ImageOps.exif_transpose(image)
+        image = image.convert("RGB")
+    except Exception as e:
+        raise ValueError(f"Не вдалось відкрити зображення: {e}")
+    
     tensor = transform(image).unsqueeze(0)
     with torch.no_grad():
         probs = torch.softmax(model(tensor), dim=1)[0]
