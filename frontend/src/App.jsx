@@ -254,7 +254,7 @@ export default function App() {
     label: { fontSize: 12, color: neu.textLight, marginBottom: 6, display: "block", fontWeight: 600 },
     nav: { position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "#171d1a", boxShadow: "0 -4px 16px #0d1210", display: "flex", padding: "8px 0 12px" },
     navBtn: (active) => ({ flex: 1, padding: "8px 4px", border: "none", background: "none", cursor: "pointer", fontSize: 10, fontWeight: active ? 800 : 500, color: active ? neu.green : neu.textLight, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }),
-    uploadZone: { border: `2px dashed ${neu.green}55`, borderRadius: 20, padding: 32, textAlign: "center", cursor: "pointer", background: neu.bg, display: "block", width: "100%", boxShadow: neu.shadowIn },
+    uploadZone: { border: `2px dashed ${neu.green}55`, borderRadius: 20, padding: 32, textAlign: "center", cursor: "pointer", background: neu.bg, display: "block", boxShadow: neu.shadowIn },
     tag: (color) => ({ display: "inline-block", padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 700, background: neu.bg, color: color === "green" ? neu.green : color === "red" ? neu.red : color === "blue" ? neu.blue : neu.amber, boxShadow: neu.shadowSm }),
     modal: { position: "fixed", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, height: "100%", background: "rgba(0,0,0,0.6)", zIndex: 100, display: "flex", alignItems: "flex-end" },
     modalContent: { background: neu.bg, borderRadius: "24px 24px 0 0", padding: 22, width: "100%", maxHeight: "90vh", overflowY: "auto" },
@@ -314,10 +314,19 @@ export default function App() {
               )
             })()}
 
-            <label style={{ ...s.btnBlue, display: "block", textAlign: "center", cursor: "pointer", borderRadius: 14 }}>
-              {checkingPlant ? "⏳ Аналізуємо..." : "🔍 Перевірити стан рослини"}
-              <input type="file" accept="image/*" onChange={(e) => checkPlantHealth(e, selectedPlant.id)} style={{ display: "none" }} />
-            </label>
+            <div style={{ fontSize: 12, fontWeight: 800, color: neu.text, marginBottom: 8 }}>🔍 Перевірити стан рослини</div>
+            <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+              <label style={{ ...s.uploadZone, flex: 1, padding: 16, textAlign: "center" }}>
+                <div style={{ fontSize: 24, marginBottom: 6 }}>📷</div>
+                <div style={{ fontSize: 11, fontWeight: 800, color: neu.blue }}>{checkingPlant ? "⏳..." : "Камера"}</div>
+                <input type="file" accept="image/*" capture="environment" onChange={(e) => checkPlantHealth(e, selectedPlant.id)} style={{ display: "none" }} />
+              </label>
+              <label style={{ ...s.uploadZone, flex: 1, padding: 16, textAlign: "center" }}>
+                <div style={{ fontSize: 24, marginBottom: 6 }}>🖼️</div>
+                <div style={{ fontSize: 11, fontWeight: 800, color: neu.blue }}>{checkingPlant ? "⏳..." : "Галерея"}</div>
+                <input type="file" accept="image/*" onChange={(e) => checkPlantHealth(e, selectedPlant.id)} style={{ display: "none" }} />
+              </label>
+            </div>
 
             {selectedPlant.lastCheck && (
               <div style={{ background: selectedPlant.lastCheck.is_disease ? "#2d1515" : "#152d1e", borderRadius: 16, padding: 14, marginBottom: 14, boxShadow: neu.shadowIn }}>
@@ -348,7 +357,6 @@ export default function App() {
 
             <MiniCalendar lastDate={selectedPlant.last_watered} nextDate={selectedPlant.next_watering} intervalDays={selectedPlant.watering_interval_days || 7} onMark={markWatered} plantId={selectedPlant.id} type="water" />
             <MiniCalendar lastDate={selectedPlant.last_fertilized} nextDate={selectedPlant.next_fertilizing} intervalDays={selectedPlant.fertilizing_interval_days || 30} onMark={markFertilized} plantId={selectedPlant.id} type="fertilize" />
-
             {selectedPlant.notes && <div style={{ fontSize: 12, color: neu.textLight, marginTop: 4 }}>📝 {selectedPlant.notes}</div>}
           </div>
         </div>
@@ -445,12 +453,18 @@ export default function App() {
             </div>
           )}
 
-          <label style={s.uploadZone}>
-            <div style={{ fontSize: 44, marginBottom: 12 }}>📷</div>
-            <div style={{ fontSize: 15, fontWeight: 800, color: neu.green, marginBottom: 6 }}>Сфотографувати рослину</div>
-            <div style={{ fontSize: 12, color: neu.textLight }}>або завантажити з галереї</div>
-            <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
-          </label>
+          <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+            <label style={{ ...s.uploadZone, flex: 1, padding: 20, textAlign: "center" }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>📷</div>
+              <div style={{ fontSize: 12, fontWeight: 800, color: neu.green }}>Камера</div>
+              <input type="file" accept="image/*" capture="environment" onChange={analyze} style={{ display: "none" }} />
+            </label>
+            <label style={{ ...s.uploadZone, flex: 1, padding: 20, textAlign: "center" }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>🖼️</div>
+              <div style={{ fontSize: 12, fontWeight: 800, color: neu.green }}>Галерея</div>
+              <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
+            </label>
+          </div>
 
           {history.length > 0 && <>
             <div style={{ fontSize: 13, fontWeight: 800, color: neu.text, margin: "18px 0 10px" }}>Останні аналізи</div>
@@ -482,11 +496,18 @@ export default function App() {
             </div>
           )}
           {!loading && !result && (
-            <label style={s.uploadZone}>
-              <div style={{ fontSize: 44, marginBottom: 12 }}>📷</div>
-              <div style={{ fontSize: 15, fontWeight: 800, color: neu.green }}>Завантажити фото</div>
-              <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
-            </label>
+            <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+              <label style={{ ...s.uploadZone, flex: 1, padding: 20, textAlign: "center" }}>
+                <div style={{ fontSize: 32, marginBottom: 8 }}>📷</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: neu.green }}>Камера</div>
+                <input type="file" accept="image/*" capture="environment" onChange={analyze} style={{ display: "none" }} />
+              </label>
+              <label style={{ ...s.uploadZone, flex: 1, padding: 20, textAlign: "center" }}>
+                <div style={{ fontSize: 32, marginBottom: 8 }}>🖼️</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: neu.green }}>Галерея</div>
+                <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
+              </label>
+            </div>
           )}
           {result && <>
             <div style={s.card}>
@@ -503,23 +524,18 @@ export default function App() {
                 </div>
               ))}
             </div>
-
             {result.is_disease && result.treatment && (
               <div style={{ ...s.card, boxShadow: neu.shadowIn }}>
                 <div style={{ fontSize: 13, fontWeight: 800, color: neu.red, marginBottom: 10 }}>⚠️ Виявлено хворобу</div>
                 <div style={{ fontSize: 12, color: neu.textLight, lineHeight: 1.7, marginBottom: 10 }}>{result.treatment}</div>
-                {result.care?.watering_tip && (
-                  <div style={{ fontSize: 12, color: neu.blue }}>💧 {result.care.watering_tip}</div>
-                )}
+                {result.care?.watering_tip && <div style={{ fontSize: 12, color: neu.blue }}>💧 {result.care.watering_tip}</div>}
               </div>
             )}
-
             {!result.is_disease && (
               <div style={{ ...s.card, boxShadow: neu.shadowIn }}>
                 <div style={{ fontSize: 13, fontWeight: 800, color: neu.green }}>✅ Рослина виглядає здоровою!</div>
               </div>
             )}
-
             <button style={{ ...s.btn }} onClick={() => {
               setNewPlant({ name: "", species: result.results?.[0]?.label?.replace(/ — /g, "___").replace(/ /g, "_") || "", soil_type: "", notes: "" })
               setShowAddPlant(true)
