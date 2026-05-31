@@ -103,6 +103,7 @@ pip install -r requirements.txt
 - `plant_model_v2.pth`
 - `class_names_v2.json`
 
+Google Drive: https://drive.google.com/file/d/19bMHxTTWLGQNCkjS41RIEdRfze5iQKOw/view?usp=sharing
 ### 5. Запуск бекенду
 
 ```bash
