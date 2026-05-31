@@ -285,7 +285,6 @@ export default function App() {
   return (
     <div style={s.page}>
 
-      {/* МОДАЛКА РОСЛИНИ */}
       {selectedPlant && (
         <div style={s.modal} onClick={() => setSelectedPlant(null)}>
           <div style={s.modalContent} onClick={e => e.stopPropagation()}>
@@ -301,7 +300,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Рекомендації */}
             {(() => {
               const care = getCare(selectedPlant.species)
               return (
@@ -316,13 +314,11 @@ export default function App() {
               )
             })()}
 
-            {/* Перевірка стану */}
             <label style={{ ...s.btnBlue, display: "block", textAlign: "center", cursor: "pointer", borderRadius: 14 }}>
               {checkingPlant ? "⏳ Аналізуємо..." : "🔍 Перевірити стан рослини"}
-              <input type="file" accept="image/*" capture="environment" onChange={(e) => checkPlantHealth(e, selectedPlant.id)} style={{ display: "none" }} />
+              <input type="file" accept="image/*" onChange={(e) => checkPlantHealth(e, selectedPlant.id)} style={{ display: "none" }} />
             </label>
 
-            {/* Результат перевірки */}
             {selectedPlant.lastCheck && (
               <div style={{ background: selectedPlant.lastCheck.is_disease ? "#2d1515" : "#152d1e", borderRadius: 16, padding: 14, marginBottom: 14, boxShadow: neu.shadowIn }}>
                 <div style={{ fontSize: 13, fontWeight: 800, color: selectedPlant.lastCheck.is_disease ? neu.red : neu.green, marginBottom: 10 }}>
@@ -350,7 +346,6 @@ export default function App() {
               </div>
             )}
 
-            {/* Календарі */}
             <MiniCalendar lastDate={selectedPlant.last_watered} nextDate={selectedPlant.next_watering} intervalDays={selectedPlant.watering_interval_days || 7} onMark={markWatered} plantId={selectedPlant.id} type="water" />
             <MiniCalendar lastDate={selectedPlant.last_fertilized} nextDate={selectedPlant.next_fertilizing} intervalDays={selectedPlant.fertilizing_interval_days || 30} onMark={markFertilized} plantId={selectedPlant.id} type="fertilize" />
 
@@ -359,7 +354,6 @@ export default function App() {
         </div>
       )}
 
-      {/* МОДАЛКА ДОДАВАННЯ */}
       {showAddPlant && (
         <div style={s.modal} onClick={() => setShowAddPlant(false)}>
           <div style={s.modalContent} onClick={e => e.stopPropagation()}>
@@ -370,31 +364,31 @@ export default function App() {
             <label style={s.label}>Вид рослини</label>
             <select style={{ ...s.input, appearance: "none", WebkitAppearance: "none" }} value={newPlant.species} onChange={e => setNewPlant({ ...newPlant, species: e.target.value })}>
               <option value="">— Оберіть вид —</option>
-<optgroup label="🌹 Квіти">
-  <option value="Rose_Healthy">Троянда</option>
-  <option value="Hibiscus_Healthy">Гібіскус</option>
-  <option value="Chrysanthemum_Healthy">Хризантема</option>
-</optgroup>
-<optgroup label="🌿 Кімнатні">
-  <option value="Money Plant_Money_Plant_Healthy">Потос</option>
-  <option value="Turmeric_Healthy">Куркума</option>
-</optgroup>
-<optgroup label="🍅 Городні">
-  <option value="Tomato___healthy">Томат</option>
-  <option value="Potato___healthy">Картопля</option>
-  <option value="Pepper,_bell___healthy">Перець</option>
-  <option value="Strawberry___healthy">Суниця</option>
-  <option value="Apple___healthy">Яблуня</option>
-  <option value="Grape___healthy">Виноград</option>
-  <option value="Cherry_(including_sour)___healthy">Вишня</option>
-  <option value="Peach___healthy">Персик</option>
-  <option value="Blueberry___healthy">Чорниця</option>
-  <option value="Raspberry___healthy">Малина</option>
-</optgroup>
-<optgroup label="🌾 Зернові">
-  <option value="Corn_(maize)___healthy">Кукурудза</option>
-  <option value="Soybean___healthy">Соя</option>
-</optgroup>
+              <optgroup label="🌹 Квіти">
+                <option value="Rose_Healthy">Троянда</option>
+                <option value="Hibiscus_Healthy">Гібіскус</option>
+                <option value="Chrysanthemum_Healthy">Хризантема</option>
+              </optgroup>
+              <optgroup label="🌿 Кімнатні">
+                <option value="Money Plant_Money_Plant_Healthy">Потос</option>
+                <option value="Turmeric_Healthy">Куркума</option>
+              </optgroup>
+              <optgroup label="🍅 Городні">
+                <option value="Tomato___healthy">Томат</option>
+                <option value="Potato___healthy">Картопля</option>
+                <option value="Pepper,_bell___healthy">Перець</option>
+                <option value="Strawberry___healthy">Суниця</option>
+                <option value="Apple___healthy">Яблуня</option>
+                <option value="Grape___healthy">Виноград</option>
+                <option value="Cherry_(including_sour)___healthy">Вишня</option>
+                <option value="Peach___healthy">Персик</option>
+                <option value="Blueberry___healthy">Чорниця</option>
+                <option value="Raspberry___healthy">Малина</option>
+              </optgroup>
+              <optgroup label="🌾 Зернові">
+                <option value="Corn_(maize)___healthy">Кукурудза</option>
+                <option value="Soybean___healthy">Соя</option>
+              </optgroup>
             </select>
             <label style={s.label}>Тип ґрунту</label>
             <select style={{ ...s.input, appearance: "none", WebkitAppearance: "none" }} value={newPlant.soil_type} onChange={e => setNewPlant({ ...newPlant, soil_type: e.target.value })}>
@@ -415,7 +409,6 @@ export default function App() {
         </div>
       )}
 
-      {/* ГОЛОВНА */}
       {screen === "home" && <>
         <div style={s.topbar}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -456,7 +449,7 @@ export default function App() {
             <div style={{ fontSize: 44, marginBottom: 12 }}>📷</div>
             <div style={{ fontSize: 15, fontWeight: 800, color: neu.green, marginBottom: 6 }}>Сфотографувати рослину</div>
             <div style={{ fontSize: 12, color: neu.textLight }}>або завантажити з галереї</div>
-            <input type="file" accept="image/*" capture="environment" onChange={analyze} style={{ display: "none" }} />
+            <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
           </label>
 
           {history.length > 0 && <>
@@ -476,7 +469,6 @@ export default function App() {
         </div>
       </>}
 
-      {/* РЕЗУЛЬТАТ */}
       {screen === "result" && <>
         <div style={s.topbar}>
           <div style={{ fontSize: 18, fontWeight: 800, color: loading ? neu.text : neu.red }}>{loading ? "🔍 Аналізуємо..." : "📊 Результат"}</div>
@@ -493,7 +485,7 @@ export default function App() {
             <label style={s.uploadZone}>
               <div style={{ fontSize: 44, marginBottom: 12 }}>📷</div>
               <div style={{ fontSize: 15, fontWeight: 800, color: neu.green }}>Завантажити фото</div>
-              <input type="file" accept="image/*" capture="environment" onChange={analyze} style={{ display: "none" }} />
+              <input type="file" accept="image/*" onChange={analyze} style={{ display: "none" }} />
             </label>
           )}
           {result && <>
@@ -537,7 +529,6 @@ export default function App() {
         </div>
       </>}
 
-      {/* МОЇ РОСЛИНИ */}
       {screen === "plants" && <>
         <div style={s.topbar}>
           <div style={{ fontSize: 18, fontWeight: 800, color: neu.text }}>🪴 Мої рослини</div>
@@ -573,7 +564,6 @@ export default function App() {
         </div>
       </>}
 
-      {/* ПРОФІЛЬ */}
       {screen === "profile" && <>
         <div style={s.topbar}>
           <div style={{ fontSize: 18, fontWeight: 800, color: neu.text }}>👤 Профіль</div>
