@@ -1,84 +1,67 @@
 # 🌿 Plant AI — Додаток для аналізу стану рослин
 
-> Мобільний PWA-додаток для визначення хвороб рослин за фотографією з використанням машинного навчання. Дозволяє відстежувати стан рослин, отримувати рекомендації по лікуванню та керувати календарем поливу.
+> Мобільний PWA-додаток для автоматизованого визначення хвороб рослин за фотографією з використанням машинного навчання та надання практичних рекомендацій щодо догляду.
 
 ---
 
 ## 👤 Автор
 
-- **ПІБ**: Суворова Софія Володмирівна
+- **ПІБ**: Суворова Софія Володимирівна
 - **Група**: ФЕІ-45
-- **Керівник**: Сінькевич Олег Олександрович, кандидат технічних наук, доцент кафедри радіоелектронних і комп’ютерних систем]
+- **Керівник**: Сінькевич Олег Олександрович, к.т.н., доцент
 - **Дата виконання**: 31.05.2026
-
----
-
-## 🌐 Посилання
-
-- **Живий додаток**: https://plant-analyzer-blush.vercel.app
-- **API документація**: https://plant-analyzer-qvid.onrender.com/docs
 
 ---
 
 ## 📌 Загальна інформація
 
-- **Тип проєкту**: Мобільний PWA веб-додаток
-- **Мова програмування**: Python (Backend), JavaScript (Frontend)
-- **Фреймворки / Бібліотеки**: FastAPI, React, PyTorch, SQLAlchemy
-- **База даних**: PostgreSQL (Neon)
-- **ML модель**: MobileNetV2 (transfer learning)
-- **Датасет**: PlantVillage + Indoor Plant Disease Dataset (75,828 фото, 61 клас)
-- **Точність моделі**: 96.21%
+- **Тип проєкту**: Мобільний PWA-застосунок (Progressive Web Application)
+- **Мова програмування**: Python 3.11, JavaScript (React)
+- **Фреймворки / Бібліотеки**: FastAPI, PyTorch, React, Vite, SQLAlchemy
+- **База даних**: PostgreSQL (Neon — serverless хмарна БД)
+- **Хостинг**: Vercel (frontend), Render (backend)
+- **Живий додаток**: https://plant-analyzer-blush.vercel.app
+- **Репозиторій**: https://github.com/Suvorova-lnu/plant-analyzer
 
 ---
 
 ## 🧠 Опис функціоналу
 
-- 🔐 Реєстрація та авторизація користувачів (JWT токени)
-- 📷 Аналіз фото рослини через камеру або галерею
-- 🤖 Визначення хвороби рослини з точністю 96% (61 клас)
-- 💊 Рекомендації по лікуванню виявлених хвороб
-- 🪴 Сторінка "Мої рослини" — додавання і відстеження рослин
-- 💧 Календар поливу і удобрення з нагадуваннями
-- 📋 Рекомендації по догляду для кожного виду рослини
-- 📊 Історія аналізів
-- 📱 PWA — встановлення на телефон як нативний додаток
+- 🔐 Реєстрація та авторизація користувачів (JWT + bcrypt)
+- 📷 Аналіз фотографії рослини з визначенням хвороби (61 клас, точність 96,21%)
+- 💊 Практичні рекомендації щодо лікування виявленої хвороби
+- 🪴 Персональний список рослин з рекомендаціями по догляду
+- 📅 Календар поливу та удобрення з автоматичним розрахунком розкладу
+- 📋 Історія аналізів
+- 📲 Встановлення на телефон як PWA без App Store / Google Play
 
 ---
 
-## 🧱 Опис основних файлів
+## 🧱 Опис основних класів / файлів
 
 | Файл | Призначення |
 |------|-------------|
-| `backend/main.py` | FastAPI сервер, всі API ендпоінти |
-| `backend/ml_model.py` | Завантаження ML моделі, функція predict |
-| `backend/database.py` | Моделі бази даних (User, MyPlant, WateringSchedule) |
-| `backend/auth.py` | JWT авторизація, хешування паролів |
-| `backend/plant_care.json` | База знань по догляду за рослинами |
-| `backend/plant_model_v2.pth` | Натренована ML модель (61 клас) |
-| `frontend/src/App.jsx` | React додаток (всі екрани і логіка) |
-| `frontend/public/manifest.json` | PWA маніфест |
-| `backend/plant_model_training.ipynb` | Colab ноутбук навчання моделі |
+| `backend/main.py` | FastAPI додаток, всі API ендпоінти, CORS middleware |
+| `backend/ml_model.py` | Завантаження MobileNetV2, функція predict |
+| `backend/database.py` | SQLAlchemy ORM моделі (User, AnalysisHistory, MyPlant, WateringSchedule) |
+| `backend/auth.py` | JWT генерація/перевірка, bcrypt хешування паролів |
+| `backend/plant_care.json` | База знань по догляду для 61 класу рослин |
+| `backend/plant_model_v2.pth` | Навчена модель MobileNetV2 (61 клас) |
+| `backend/class_names_v2.json` | Назви 61 класу хвороб рослин |
+| `backend/requirements.txt` | Залежності Python |
+| `frontend/src/App.jsx` | Головний React компонент, всі екрани та логіка |
+| `frontend/src/main.jsx` | Точка входу, реєстрація Service Worker |
+| `frontend/public/manifest.json` | PWA маніфест (назва, іконка, тема) |
+| `frontend/public/sw.js` | Service Worker для кешування |
 
 ---
 
-## 🤖 ML Модель
-
-- **Архітектура**: MobileNetV2 (transfer learning)
-- **Датасет**: PlantVillage (54,305 фото) + Indoor Plant Disease Dataset (21,523 фото)
-- **Класів**: 61 (хвороби культурних і кімнатних рослин)
-- **Точність**: 96.21% на валідаційній вибірці
-- **Навчання**: Google Colab (GPU T4), 10 епох
-- **Платформа**: PyTorch + torchvision
-
----
-
-## ▶️ Як запустити проєкт локально
+## ▶️ Як запустити проєкт "з нуля"
 
 ### 1. Встановлення інструментів
 
-- Python 3.11+
-- Node.js 20+
+- Python 3.11 або новіший
+- Node.js v20.0 + npm v10.0
 - Git
 
 ### 2. Клонування репозиторію
@@ -88,127 +71,179 @@ git clone https://github.com/Suvorova-lnu/plant-analyzer.git
 cd plant-analyzer
 ```
 
-### 3. Налаштування бекенду
+### 3. Встановлення залежностей
 
 ```bash
+# Backend
 cd backend
 python -m venv venv
-venv\Scripts\activate  # Windows
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # macOS/Linux
 pip install -r requirements.txt
-```
 
-### 4. Додати файли моделі
-
-Завантажити з Google Drive і покласти в `backend/`:
-- `plant_model_v2.pth`
-- `class_names_v2.json`
-
-Google Drive: https://drive.google.com/file/d/19bMHxTTWLGQNCkjS41RIEdRfze5iQKOw/view?usp=sharing
-### 5. Запуск бекенду
-
-```bash
-uvicorn main:app --reload
-```
-
-API доступне на `http://localhost:8000`
-
-### 6. Налаштування фронтенду
-
-```bash
+# Frontend
 cd ../frontend
 npm install
 ```
 
-Відкрити `frontend/src/App.jsx` і знайти:
-```js
-const API = "https://plant-analyzer-qvid.onrender.com"
+### 4. Додати файли моделі
+
+Помістити у папку `backend/`:
+- `plant_model_v2.pth` — навчена модель
+- `class_names_v2.json` — назви класів
+
+### 5. Створення `.env` файлу для backend
+
 ```
-Заміни на:
-```js
-const API = "http://localhost:8000"
+DATABASE_URL=postgresql://user:password@host/dbname
+SECRET_KEY=your_secret_key
 ```
 
-### 7. Запуск фронтенду
+### 6. Запуск
 
 ```bash
-npm run dev
-```
+# Backend (термінал 1)
+cd backend
+uvicorn main:app --reload
+# Сервер: http://localhost:8000
+# Документація API: http://localhost:8000/docs
 
-Додаток доступний на `http://localhost:5173`
+# Frontend (термінал 2)
+cd frontend
+# У файлі src/App.jsx змінити: const API = "http://localhost:8000"
+npm run dev
+# Додаток: http://localhost:5173
+```
 
 ---
 
-## 🔌 API ендпоінти
+## 🔌 API приклади
+
+### 🔐 Реєстрація
+
+**POST /register**
+
+```json
+{
+  "email": "user@example.com",
+  "password": "123456"
+}
+```
+
+**Response:**
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+---
 
 ### 🔐 Авторизація
 
-**POST /register**
-```json
-{ "email": "user@example.com", "password": "password123" }
-```
 **POST /login**
+
 ```json
-{ "email": "user@example.com", "password": "password123" }
+{
+  "email": "user@example.com",
+  "password": "123456"
+}
 ```
+
 **Response:**
+
 ```json
-{ "token": "jwt_token_here" }
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
 ```
 
-### 🌿 Аналіз рослини
+---
 
-**POST /analyze** *(multipart/form-data)*
+### 🌿 Аналіз зображення
+
+**POST /analyze**
+
+```
+Header: Authorization: Bearer <token>
+Body: multipart/form-data, file=photo.jpg
+```
+
+**Response:**
 
 ```json
 {
   "results": [
-    { "label": "Tomato — Late blight", "confidence": 94.2 },
-    { "label": "Tomato — Early blight", "confidence": 3.1 }
+    {"class": "Tomato_Late_blight", "confidence": 94.5},
+    {"class": "Tomato_Early_blight", "confidence": 3.2},
+    {"class": "Tomato_healthy", "confidence": 1.1}
   ],
   "is_disease": true,
-  "treatment": "Обробіть фунгіцидом на основі міді...",
-  "care": { "watering_tip": "Полив вранці під корінь" }
+  "treatment": "Обробіть рослину фунгіцидом на основі міді..."
 }
 ```
 
-### 🪴 Мої рослини
+---
 
-| Метод | Ендпоінт | Опис |
-|-------|----------|------|
-| GET | /plants | Список рослин користувача |
-| POST | /plants | Додати рослину |
-| DELETE | /plants/{id} | Видалити рослину |
-| POST | /plants/{id}/watered | Відмітити полив |
-| POST | /plants/{id}/fertilized | Відмітити удобрення |
-| GET | /calendar | Календар догляду |
-| GET | /history | Історія аналізів |
-| GET | /me | Профіль користувача |
+### 🪴 Управління рослинами
+
+**GET /plants** — отримати список рослин
+
+**POST /plants**
+
+```json
+{
+  "name": "Моя троянда",
+  "species": "Rose_healthy",
+  "soil_type": "Суглинок"
+}
+```
+
+**POST /plants/{id}/watered** — відмітити полив
+
+**DELETE /plants/{id}** — видалити рослину
 
 ---
 
 ## 🖱️ Інструкція для користувача
 
-1. **Реєстрація** — введи email і пароль → натисни "Зареєструватись"
+1. **Відкрити додаток** за адресою https://plant-analyzer-blush.vercel.app
 
-2. **Аналіз рослини**:
-   - Натисни 📷 Камера або 🖼️ Галерея
-   - Завантаж фото листка рослини
-   - Отримай результат з визначенням хвороби і рекомендаціями
+2. **Реєстрація / Вхід**:
+   - Вкладка `Реєстрація` → ввести email та пароль → `Зареєструватись`
+   - При повторному відвідуванні → вкладка `Увійти`
 
-3. **Мої рослини**:
-   - Натисни "+ Додати рослину"
-   - Вибери вид зі списку
-   - Натисни на рослину щоб побачити деталі, календар і перевірити стан
+3. **Аналіз рослини**:
+   - На головному екрані натиснути `🖼️ Галерея` → обрати фото листка
+   - ⚠️ Рекомендується фотографувати окремий листок при денному освітленні
+   - ⚠️ Якщо фото зроблено камерою — спочатку надіслати собі через Telegram, потім завантажити збережений файл
+   - Результат з'явиться автоматично через кілька секунд
 
-4. **Перевірка стану**:
-   - Відкрий рослину → натисни "🔍 Перевірити стан"
-   - Завантаж фото → отримай діагноз і рекомендації по лікуванню
+4. **Додати рослину**:
+   - Після аналізу натиснути `Додати до моїх рослин`
+   - Або перейти до розділу `🪴 Рослини` → `+ Додати рослину`
+   - Обрати вид зі списку, ввести назву та тип ґрунту
 
-5. **Календар поливу**:
-   - В деталях рослини є міні-календар поливу і удобрення
-   - Натисни "✓ Полито" або "✓ Удобрено" щоб відмітити
+5. **Відстеження догляду**:
+   - Натиснути на рослину у списку → відкриється вікно деталей
+   - Переглянути міні-календар поливу та удобрення
+   - Після поливу натиснути `✓ Полито` — дата оновиться автоматично
 
-6. **PWA** — відкрий сайт на телефоні → додай на головний екран
+6. **Встановити як PWA**:
+   - Android (Chrome): меню `⋮` → `Встановити додаток`
+   - iOS (Safari): кнопка `Поділитися` → `На початковий екран`
+
+---
+
+## 📷 Скриншоти
+
+- Екран авторизації
+- Головний екран (статистика + кнопки аналізу)
+- Результат аналізу (топ-3 класи + рекомендації)
+- Мої рослини (список + міні-календар)
+
+*(скриншоти у папці `/screenshots/`)*
 
 ---
 
@@ -216,33 +251,20 @@ npm run dev
 
 | Проблема | Рішення |
 |----------|---------|
-| Бекенд не відповідає | Render засинає — зачекати 30-60 сек після першого запиту |
-| 401 Unauthorized | Вийти і увійти знову — токен міг застаріти |
-| Модель не розпізнає рослину | Система працює для 61 класу з датасету PlantVillage і Indoor |
-| Фото з камери не аналізується | Надіслати фото через Telegram собі і завантажити скачаний файл |
+| Сервер не відповідає (перший запит) | Render засинає після 15 хв бездіяльності — зачекати 30–60 сек |
+| Камера не працює для аналізу | Надіслати фото через Telegram, завантажити збережений файл через Галерею |
+| 401 Unauthorized | JWT токен застарів — вийти та увійти знову |
+| Рослина не розпізнається | Модель підтримує лише 61 клас з датасету — алое, кактуси та орхідеї не підтримуються |
 
 ---
 
-## 🏗️ Архітектура системи
-Телефон/Браузер (PWA)
-↓
-React Frontend (Vercel)
-↓
-FastAPI Backend (Render)
-↙        ↘
-ML Model    PostgreSQL
-(PyTorch)   (Neon)
+## 🧾 Використані джерела / література
 
----
-
-## 🧾 Використані джерела
-
-- PyTorch документація — https://pytorch.org
-- FastAPI документація — https://fastapi.tiangolo.com
-- React документація — https://react.dev
-- PlantVillage Dataset — https://www.kaggle.com/datasets/emmarex/plantdisease
-- Indoor Plant Disease Dataset — https://www.kaggle.com/datasets/abdulahad0296/indoor-plant-disease-detection-dataset
-- MobileNetV2 paper — Howard et al., 2018
-- Neon PostgreSQL — https://neon.tech
-- Vercel — https://vercel.com
-- Render — https://render.com
+- PyTorch Documentation — https://pytorch.org/docs
+- FastAPI Documentation — https://fastapi.tiangolo.com
+- React Documentation — https://react.dev
+- Hughes D., Salathé M. PlantVillage Dataset — https://arxiv.org/abs/1511.08060
+- Sandler M. et al. MobileNetV2 — CVPR 2018
+- Neon Documentation — https://neon.tech/docs
+- Vercel Documentation — https://vercel.com/docs
+- MDN Web Docs. Progressive Web Apps — https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
