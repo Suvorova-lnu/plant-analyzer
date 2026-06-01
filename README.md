@@ -9,7 +9,7 @@
 - **ПІБ**: Суворова Софія Володимирівна
 - **Група**: ФЕІ-45
 - **Керівник**: Сінькевич Олег Олександрович, к.т.н., доцент
-- **Дата виконання**: 31.05.2026
+- **Дата виконання**: 01.06.2026
 
 ---
 
@@ -18,7 +18,7 @@
 - **Тип проєкту**: Мобільний PWA-застосунок (Progressive Web Application)
 - **Мова програмування**: Python 3.11, JavaScript (React)
 - **Фреймворки / Бібліотеки**: FastAPI, PyTorch, React, Vite, SQLAlchemy
-- **База даних**: PostgreSQL (Neon — serverless хмарна БД)
+- **База даних**: SQLite (локально) / PostgreSQL Neon (продакшн)
 - **Хостинг**: Vercel (frontend), Render (backend)
 - **Живий додаток**: https://plant-analyzer-blush.vercel.app
 - **Репозиторій**: https://github.com/Suvorova-lnu/plant-analyzer
@@ -71,49 +71,38 @@ git clone https://github.com/Suvorova-lnu/plant-analyzer.git
 cd plant-analyzer
 ```
 
-### 3. Встановлення залежностей
+### 3. Запуск серверної частини
 
 ```bash
-# Backend
 cd backend
 python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # macOS/Linux
+
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
 pip install -r requirements.txt
-
-# Frontend
-cd ../frontend
-npm install
+uvicorn main:app --reload
 ```
 
-### 4. Додати файли моделі
+Сервер запуститься на http://localhost:8000
 
-Помістити у папку `backend/`:
-- `plant_model_v2.pth` — навчена модель
-- `class_names_v2.json` — назви класів
+> База даних SQLite створюється автоматично при першому запуску — файл `plant_app.db` з'явиться у папці `backend/`. Нічого додатково налаштовувати не потрібно.
 
-### 5. Створення `.env` файлу для backend
+Документація API доступна на http://localhost:8000/docs
 
-```
-DATABASE_URL=postgresql://user:password@host/dbname
-SECRET_KEY=your_secret_key
-```
-
-### 6. Запуск
+### 4. Запуск клієнтської частини
 
 ```bash
-# Backend (термінал 1)
-cd backend
-uvicorn main:app --reload
-# Сервер: http://localhost:8000
-# Документація API: http://localhost:8000/docs
-
-# Frontend (термінал 2)
-cd frontend
-# У файлі src/App.jsx змінити: const API = "http://localhost:8000"
+cd ../frontend
+npm install
 npm run dev
-# Додаток: http://localhost:5173
 ```
+
+Додаток запуститься на http://localhost:5173
+
+> У файлі `frontend/src/App.jsx` знайдіть рядок `const API = "https://plant-analyzer-qvid.onrender.com"` і замініть на `const API = "http://localhost:8000"` для локальної роботи.
 
 ---
 
@@ -175,12 +164,12 @@ Body: multipart/form-data, file=photo.jpg
 ```json
 {
   "results": [
-    {"class": "Tomato_Late_blight", "confidence": 94.5},
-    {"class": "Tomato_Early_blight", "confidence": 3.2},
-    {"class": "Tomato_healthy", "confidence": 1.1}
+    {"label": "Tomato_Late_blight", "confidence": 94.5},
+    {"label": "Tomato_Early_blight", "confidence": 3.2},
+    {"label": "Tomato_healthy", "confidence": 1.1}
   ],
   "is_disease": true,
-  "treatment": "Обробіть рослину фунгіцидом на основі міді..."
+  "treatment": "Обробіть фунгіцидом на основі міді..."
 }
 ```
 
@@ -190,15 +179,7 @@ Body: multipart/form-data, file=photo.jpg
 
 **GET /plants** — отримати список рослин
 
-**POST /plants**
-
-```json
-{
-  "name": "Моя троянда",
-  "species": "Rose_healthy",
-  "soil_type": "Суглинок"
-}
-```
+**POST /plants?name=Троянда&species=Rose_healthy&soil_type=Суглинок** — додати рослину
 
 **POST /plants/{id}/watered** — відмітити полив
 
@@ -254,7 +235,7 @@ Body: multipart/form-data, file=photo.jpg
 | Сервер не відповідає (перший запит) | Render засинає після 15 хв бездіяльності — зачекати 30–60 сек |
 | Камера не працює для аналізу | Надіслати фото через Telegram, завантажити збережений файл через Галерею |
 | 401 Unauthorized | JWT токен застарів — вийти та увійти знову |
-| Рослина не розпізнається | Модель підтримує лише 61 клас з датасету — алое, кактуси та орхідеї не підтримуються |
+| Рослина не розпізнається | Модель підтримує лише 61 клас — алое, кактуси та орхідеї не підтримуються |
 
 ---
 
